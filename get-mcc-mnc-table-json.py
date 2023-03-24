@@ -23,7 +23,11 @@ def create_dart_file(json_object: any):
                 mnc = unidecode(entry['mnc'])
             if entry['operator']:
                 operator = unidecode(entry['operator'])
-                
+            
+            if mcc.isdigit() and mnc.isdigit():
+                mcc = int(mcc)
+                mnc = int(mnc)
+                            
             if not operator and entry['brand']:
                 operator = unidecode(entry['brand'])
             
